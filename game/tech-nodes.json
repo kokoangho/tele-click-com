@@ -1,0 +1,1479 @@
+{
+  "T1": {
+    "name": "Copper trunk",
+    "era": 0,
+    "infra": "Copper Trunk",
+    "quality": {
+      "coverage": 3,
+      "speed": 1,
+      "reliability": 0,
+      "latency": 0
+    },
+    "RP": 10,
+    "prerequisite": [],
+    "description": "Carries voice-frequency signals over bare copper pairs mounted on poles."
+  },
+  "T2": {
+    "name": "Loading coil",
+    "era": 0,
+    "infra": null,
+    "quality": {
+      "coverage": 2,
+      "speed": 0,
+      "reliability": 0,
+      "latency": 2
+    },
+    "RP": 15,
+    "prerequisite": [
+      "T1"
+    ],
+    "description": "Adds inductance to long copper loops, extending voice range while limiting bandwidth."
+  },
+  "T3": {
+    "name": "Phantom circuit",
+    "era": 0,
+    "infra": null,
+    "quality": {
+      "coverage": 0,
+      "speed": 2,
+      "reliability": 0,
+      "latency": 0
+    },
+    "RP": 18,
+    "prerequisite": [
+      "T1",
+      "T2"
+    ],
+    "description": "Uses transformers to create an additional voice circuit from two physical pairs."
+  },
+  "T4": {
+    "name": "Open-wire FDM",
+    "era": 0,
+    "infra": "Carrier Terminal",
+    "quality": {
+      "coverage": 0,
+      "speed": 5,
+      "reliability": 0,
+      "latency": 0
+    },
+    "RP": 22,
+    "prerequisite": [
+      "T3",
+      "C1"
+    ],
+    "description": "Multiplexes several telephone channels onto open-wire routes using separate frequency bands."
+  },
+  "T5": {
+    "name": "Transcontinental",
+    "era": 0,
+    "infra": null,
+    "quality": {
+      "coverage": 8,
+      "speed": 0,
+      "reliability": 2,
+      "latency": -1
+    },
+    "RP": 25,
+    "prerequisite": [
+      "T1",
+      "T2",
+      "S7"
+    ],
+    "description": "Connects distant regional networks into a coast-to-coast long-distance telephone route."
+  },
+  "T6": {
+    "name": "Underground conduit",
+    "era": 0,
+    "infra": "Underground Conduit",
+    "quality": {
+      "coverage": 0,
+      "speed": 0,
+      "reliability": 5,
+      "latency": 0
+    },
+    "RP": 12,
+    "prerequisite": [
+      "T1"
+    ],
+    "description": "Routes cables through protected underground ducts, reducing weather and accidental damage."
+  },
+  "T7": {
+    "name": "Duplex telegraph",
+    "era": 0,
+    "infra": null,
+    "quality": {
+      "coverage": 0,
+      "speed": 2,
+      "reliability": 1,
+      "latency": 1
+    },
+    "RP": 8,
+    "prerequisite": [
+      "C1"
+    ],
+    "description": "Allows simultaneous telegraph transmission in both directions over one circuit."
+  },
+  "S1": {
+    "name": "Manual switchboard",
+    "era": 0,
+    "infra": "Manual Switchboard",
+    "quality": {
+      "coverage": 1,
+      "speed": 0,
+      "reliability": -3,
+      "latency": -1
+    },
+    "RP": 10,
+    "prerequisite": [
+      "T1"
+    ],
+    "description": "Operators manually connect subscriber lines using plugs, cords, and switchboard jacks."
+  },
+  "S2": {
+    "name": "Magneto crank",
+    "era": 0,
+    "infra": null,
+    "quality": {
+      "coverage": 0,
+      "speed": 0,
+      "reliability": 0,
+      "latency": -2
+    },
+    "RP": 12,
+    "prerequisite": [
+      "S1"
+    ],
+    "description": "Uses local telephone batteries and a hand-cranked magneto to signal the exchange."
+  },
+  "S3": {
+    "name": "Common battery",
+    "era": 0,
+    "infra": null,
+    "quality": {
+      "coverage": 1,
+      "speed": 0,
+      "reliability": 3,
+      "latency": 0
+    },
+    "RP": 16,
+    "prerequisite": [
+      "S2",
+      "T2"
+    ],
+    "description": "Supplies telephone power centrally from the exchange instead of individual local batteries."
+  },
+  "S4": {
+    "name": "Strowger step-by-step",
+    "era": 0,
+    "infra": "Automatic Exchange",
+    "quality": {
+      "coverage": 3,
+      "speed": 1,
+      "reliability": 2,
+      "latency": 3
+    },
+    "RP": 20,
+    "prerequisite": [
+      "S3",
+      "T2"
+    ],
+    "description": "Automatically connects calls through electromechanical selectors controlled by dial pulses."
+  },
+  "S5": {
+    "name": "Trunk hunting",
+    "era": 0,
+    "infra": null,
+    "quality": {
+      "coverage": 2,
+      "speed": 0,
+      "reliability": 1,
+      "latency": 1
+    },
+    "RP": 24,
+    "prerequisite": [
+      "S4",
+      "T3",
+      "A5"
+    ],
+    "description": "Automatically selects an available trunk from a group of equivalent circuits."
+  },
+  "S6": {
+    "name": "Panel switch",
+    "era": 0,
+    "infra": "Panel Exchange",
+    "quality": {
+      "coverage": 5,
+      "speed": 0,
+      "reliability": 2,
+      "latency": 0
+    },
+    "RP": 26,
+    "prerequisite": [
+      "S4",
+      "T1",
+      "A2"
+    ],
+    "description": "Uses motor-driven panel banks and senders to automate large urban exchanges."
+  },
+  "S7": {
+    "name": "Multi-office trunking",
+    "era": 0,
+    "infra": null,
+    "quality": {
+      "coverage": 3,
+      "speed": 0,
+      "reliability": 1,
+      "latency": 1
+    },
+    "RP": 28,
+    "prerequisite": [
+      "S5",
+      "T3"
+    ],
+    "description": "Links multiple local exchanges with shared trunks and coordinated interoffice routing."
+  },
+  "A1": {
+    "name": "Telephone set",
+    "era": 0,
+    "infra": null,
+    "quality": {
+      "coverage": 1,
+      "speed": 0,
+      "reliability": 0,
+      "latency": 0
+    },
+    "RP": 12,
+    "prerequisite": [
+      "S1"
+    ],
+    "description": "Converts speech into electrical variations using a carbon-granule transmitter."
+  },
+  "A2": {
+    "name": "Party line",
+    "era": 0,
+    "infra": null,
+    "quality": {
+      "coverage": 5,
+      "speed": -2,
+      "reliability": -2,
+      "latency": 0
+    },
+    "RP": 14,
+    "prerequisite": [
+      "T1",
+      "A1"
+    ],
+    "description": "Lets several subscribers share one local loop, lowering cost but reducing privacy and capacity."
+  },
+  "A3": {
+    "name": "Rotary dial",
+    "era": 0,
+    "infra": null,
+    "quality": {
+      "coverage": 0,
+      "speed": 0,
+      "reliability": 1,
+      "latency": 2
+    },
+    "RP": 22,
+    "prerequisite": [
+      "S4",
+      "A1"
+    ],
+    "description": "Sends numbered pulse sequences to an automatic exchange by rotating a dial."
+  },
+  "A4": {
+    "name": "Wall phone",
+    "era": 0,
+    "infra": null,
+    "quality": {
+      "coverage": 0,
+      "speed": 0,
+      "reliability": 1,
+      "latency": 0
+    },
+    "RP": 16,
+    "prerequisite": [
+      "A1",
+      "T2"
+    ],
+    "description": "Mounts the telephone set vertically for homes and businesses with limited desk space."
+  },
+  "A5": {
+    "name": "PBX",
+    "era": 0,
+    "infra": "Private Branch Exchange",
+    "quality": {
+      "coverage": 2,
+      "speed": 0,
+      "reliability": 2,
+      "latency": 1
+    },
+    "RP": 18,
+    "prerequisite": [
+      "S1",
+      "C2"
+    ],
+    "description": "Provides private internal extension switching with controlled access to the public network."
+  },
+  "A6": {
+    "name": "Bridging bell",
+    "era": 0,
+    "infra": null,
+    "quality": {
+      "coverage": 0,
+      "speed": 0,
+      "reliability": 2,
+      "latency": 0
+    },
+    "RP": 14,
+    "prerequisite": [
+      "A1",
+      "T2"
+    ],
+    "description": "Connects multiple high-impedance ringers across a line without blocking normal voice current."
+  },
+  "A7": {
+    "name": "Lineman test set",
+    "era": 0,
+    "infra": null,
+    "quality": {
+      "coverage": 0,
+      "speed": 0,
+      "reliability": 3,
+      "latency": 0
+    },
+    "RP": 16,
+    "prerequisite": [
+      "A1"
+    ],
+    "description": "Portable handset used by technicians to test, monitor, and troubleshoot telephone circuits."
+  },
+  "C1": {
+    "name": "Morse telegraph",
+    "era": 0,
+    "infra": "Telegraph",
+    "quality": {
+      "coverage": 2,
+      "speed": 0,
+      "reliability": -1,
+      "latency": -3
+    },
+    "RP": 8,
+    "prerequisite": [],
+    "description": "Encodes text as timed electrical dots and dashes for long-distance telegraph communication."
+  },
+  "C2": {
+    "name": "Stock ticker",
+    "era": 0,
+    "infra": null,
+    "quality": {
+      "coverage": 0,
+      "speed": 0,
+      "reliability": 0,
+      "latency": 0
+    },
+    "RP": 10,
+    "prerequisite": [
+      "C1"
+    ],
+    "description": "Prints continuously updated market prices sent over dedicated telegraph circuits."
+  },
+  "C3": {
+    "name": "Telex network",
+    "era": 0,
+    "infra": null,
+    "quality": {
+      "coverage": 2,
+      "speed": 0,
+      "reliability": 1,
+      "latency": 0
+    },
+    "RP": 20,
+    "prerequisite": [
+      "C1",
+      "S1",
+      "A1"
+    ],
+    "description": "Connects teleprinters through a switched international text-communications network."
+  },
+  "C4": {
+    "name": "Numbering plan",
+    "era": 0,
+    "infra": null,
+    "quality": {
+      "coverage": 5,
+      "speed": 0,
+      "reliability": 3,
+      "latency": 3
+    },
+    "RP": 28,
+    "prerequisite": [
+      "T4",
+      "S5",
+      "A2"
+    ],
+    "description": "Assigns standardized area codes and telephone numbers for continent-wide automatic routing."
+  },
+  "C5": {
+    "name": "Trunk super group",
+    "era": 0,
+    "infra": null,
+    "quality": {
+      "coverage": 0,
+      "speed": 3,
+      "reliability": 1,
+      "latency": 0
+    },
+    "RP": 30,
+    "prerequisite": [
+      "T4",
+      "S7"
+    ],
+    "description": "Combines frequency-division groups into larger analog carrier hierarchies for high-capacity trunks."
+  },
+  "C6": {
+    "name": "Manual toll board",
+    "era": 0,
+    "infra": "Toll Office",
+    "quality": {
+      "coverage": 3,
+      "speed": 0,
+      "reliability": -2,
+      "latency": -2
+    },
+    "RP": 22,
+    "prerequisite": [
+      "S1",
+      "T4"
+    ],
+    "description": "Lets operators establish and supervise long-distance calls through dedicated toll positions."
+  },
+  "C7": {
+    "name": "Toll cord test",
+    "era": 0,
+    "infra": null,
+    "quality": {
+      "coverage": 0,
+      "speed": 0,
+      "reliability": 3,
+      "latency": 0
+    },
+    "RP": 26,
+    "prerequisite": [
+      "C6",
+      "T2"
+    ],
+    "description": "Provides centralized testing and fault isolation for long-distance trunks and circuits."
+  },
+  "T8": {
+    "name": "L-carrier coaxial",
+    "era": 1,
+    "infra": "Coaxial Backbone",
+    "quality": {
+      "coverage": 0,
+      "speed": 8,
+      "reliability": 2,
+      "latency": 0
+    },
+    "RP": 35,
+    "prerequisite": [
+      "T4",
+      "T5",
+      "S7"
+    ],
+    "description": "Carries hundreds or thousands of analog voice channels over broadband coaxial cable."
+  },
+  "T9": {
+    "name": "TD-2 microwave",
+    "era": 1,
+    "infra": "Microwave Tower",
+    "quality": {
+      "coverage": 5,
+      "speed": 3,
+      "reliability": 0,
+      "latency": 3
+    },
+    "RP": 38,
+    "prerequisite": [
+      "T5",
+      "T8",
+      "S10"
+    ],
+    "description": "Relays multichannel telephone and television traffic between line-of-sight microwave towers."
+  },
+  "T10": {
+    "name": "TAT-1 submarine",
+    "era": 1,
+    "infra": "Submarine Cable",
+    "quality": {
+      "coverage": 10,
+      "speed": 2,
+      "reliability": 3,
+      "latency": -2
+    },
+    "RP": 40,
+    "prerequisite": [
+      "T8",
+      "S9"
+    ],
+    "description": "Provides the first permanent transatlantic telephone service through a submarine coaxial cable."
+  },
+  "T11": {
+    "name": "N-carrier FDM",
+    "era": 1,
+    "infra": null,
+    "quality": {
+      "coverage": 2,
+      "speed": 2,
+      "reliability": 0,
+      "latency": 0
+    },
+    "RP": 32,
+    "prerequisite": [
+      "T4",
+      "S8"
+    ],
+    "description": "Multiplexes multiple analog voice channels over paired copper carrier systems."
+  },
+  "T12": {
+    "name": "Troposcatter",
+    "era": 1,
+    "infra": null,
+    "quality": {
+      "coverage": 5,
+      "speed": 1,
+      "reliability": 0,
+      "latency": -1
+    },
+    "RP": 42,
+    "prerequisite": [
+      "T9",
+      "C9"
+    ],
+    "description": "Sends radio signals beyond the horizon by scattering them through the troposphere."
+  },
+  "S8": {
+    "name": "#1 Crossbar",
+    "era": 1,
+    "infra": "Crossbar Exchange",
+    "quality": {
+      "coverage": 3,
+      "speed": 0,
+      "reliability": 5,
+      "latency": 2
+    },
+    "RP": 30,
+    "prerequisite": [
+      "S5",
+      "T6"
+    ],
+    "description": "Uses crosspoint matrices and electromechanical control to switch local telephone calls."
+  },
+  "S9": {
+    "name": "#4 Crossbar toll",
+    "era": 1,
+    "infra": null,
+    "quality": {
+      "coverage": 5,
+      "speed": 0,
+      "reliability": 3,
+      "latency": 2
+    },
+    "RP": 36,
+    "prerequisite": [
+      "S8",
+      "C4",
+      "C9"
+    ],
+    "description": "Applies crossbar switching to high-capacity long-distance and tandem traffic."
+  },
+  "S10": {
+    "name": "#5 Crossbar local",
+    "era": 1,
+    "infra": null,
+    "quality": {
+      "coverage": 5,
+      "speed": 1,
+      "reliability": 5,
+      "latency": 1
+    },
+    "RP": 34,
+    "prerequisite": [
+      "S8"
+    ],
+    "description": "Provides scalable crossbar switching for large local metropolitan telephone exchanges."
+  },
+  "S11": {
+    "name": "DDD",
+    "era": 1,
+    "infra": null,
+    "quality": {
+      "coverage": 3,
+      "speed": 0,
+      "reliability": 2,
+      "latency": 5
+    },
+    "RP": 40,
+    "prerequisite": [
+      "S10",
+      "C4",
+      "C7",
+      "A8"
+    ],
+    "description": "Allows subscribers to dial long-distance destinations without assistance from an operator."
+  },
+  "A8": {
+    "name": "Touch-tone DTMF",
+    "era": 1,
+    "infra": null,
+    "quality": {
+      "coverage": 0,
+      "speed": 1,
+      "reliability": 2,
+      "latency": 3
+    },
+    "RP": 38,
+    "prerequisite": [
+      "S10",
+      "A3"
+    ],
+    "description": "Represents dialed digits as pairs of audio frequencies for faster, reliable signaling."
+  },
+  "A9": {
+    "name": "Desk phone 500",
+    "era": 1,
+    "infra": null,
+    "quality": {
+      "coverage": 0,
+      "speed": 0,
+      "reliability": 2,
+      "latency": 0
+    },
+    "RP": 32,
+    "prerequisite": [
+      "A4"
+    ],
+    "description": "A durable standardized desk telephone widely deployed across the mid-century network."
+  },
+  "A10": {
+    "name": "MTS car phone",
+    "era": 1,
+    "infra": null,
+    "quality": {
+      "coverage": 3,
+      "speed": -2,
+      "reliability": -3,
+      "latency": -3
+    },
+    "RP": 36,
+    "prerequisite": [
+      "T8",
+      "C8"
+    ],
+    "description": "Provides operator-assisted mobile calls through a small number of high-power radio channels."
+  },
+  "A11": {
+    "name": "IMTS improved",
+    "era": 1,
+    "infra": null,
+    "quality": {
+      "coverage": 3,
+      "speed": 0,
+      "reliability": 2,
+      "latency": 1
+    },
+    "RP": 40,
+    "prerequisite": [
+      "A10",
+      "S8",
+      "T9"
+    ],
+    "description": "Improves mobile service with automatic dialing, additional channels, and better call handling."
+  },
+  "C8": {
+    "name": "SF signaling",
+    "era": 1,
+    "infra": null,
+    "quality": {
+      "coverage": 0,
+      "speed": 0,
+      "reliability": 2,
+      "latency": 0
+    },
+    "RP": 34,
+    "prerequisite": [
+      "T8",
+      "S10"
+    ],
+    "description": "Uses a single in-band tone to supervise seizure and release of telephone trunks."
+  },
+  "C9": {
+    "name": "MF signaling",
+    "era": 1,
+    "infra": null,
+    "quality": {
+      "coverage": 0,
+      "speed": 0,
+      "reliability": 3,
+      "latency": 3
+    },
+    "RP": 38,
+    "prerequisite": [
+      "C8"
+    ],
+    "description": "Uses combinations of audio frequencies to transmit routing digits between switching offices."
+  },
+  "C10": {
+    "name": "ANI",
+    "era": 1,
+    "infra": null,
+    "quality": {
+      "coverage": 0,
+      "speed": 0,
+      "reliability": 3,
+      "latency": 2
+    },
+    "RP": 42,
+    "prerequisite": [
+      "C9",
+      "S11"
+    ],
+    "description": "Automatically identifies the originating subscriber number for routing, billing, and services."
+  },
+  "C11": {
+    "name": "ONI",
+    "era": 1,
+    "infra": null,
+    "quality": {
+      "coverage": 0,
+      "speed": 0,
+      "reliability": -1,
+      "latency": -2
+    },
+    "RP": 36,
+    "prerequisite": [
+      "C6",
+      "A9"
+    ],
+    "description": "Records call destination, duration, and timing automatically for billing and traffic analysis."
+  },
+  "T15": {
+    "name": "Fiber optic",
+    "era": 2,
+    "infra": "Fiber Cable",
+    "quality": {
+      "coverage": 0,
+      "speed": 15,
+      "reliability": 3,
+      "latency": 5
+    },
+    "RP": 55,
+    "prerequisite": [
+      "T8",
+      "C17",
+      "C15"
+    ],
+    "description": "Transmits high-capacity optical signals through low-loss single-mode glass fiber."
+  },
+  "T16": {
+    "name": "T1 carrier",
+    "era": 2,
+    "infra": null,
+    "quality": {
+      "coverage": 0,
+      "speed": 5,
+      "reliability": 3,
+      "latency": 0
+    },
+    "RP": 48,
+    "prerequisite": [
+      "S15",
+      "C15"
+    ],
+    "description": "Digitally carries 24 voice channels at 1.544 Mb/s using time-division multiplexing."
+  },
+  "T18": {
+    "name": "SONET",
+    "era": 2,
+    "infra": null,
+    "quality": {
+      "coverage": 0,
+      "speed": 3,
+      "reliability": 15,
+      "latency": 0
+    },
+    "RP": 58,
+    "prerequisite": [
+      "T15",
+      "S15"
+    ],
+    "description": "Standardizes synchronous optical transport, multiplexing, monitoring, and rapid protection switching."
+  },
+  "T19": {
+    "name": "EDFA amplifier",
+    "era": 2,
+    "infra": null,
+    "quality": {
+      "coverage": 0,
+      "speed": 5,
+      "reliability": 5,
+      "latency": 2
+    },
+    "RP": 60,
+    "prerequisite": [
+      "T18",
+      "C17"
+    ],
+    "description": "Amplifies optical signals directly in fiber without converting them back to electricity."
+  },
+  "T20": {
+    "name": "DWDM",
+    "era": 2,
+    "infra": null,
+    "quality": {
+      "coverage": 0,
+      "speed": 15,
+      "reliability": 0,
+      "latency": 0
+    },
+    "RP": 62,
+    "prerequisite": [
+      "T15",
+      "T18"
+    ],
+    "description": "Carries many optical wavelengths simultaneously through one fiber to multiply capacity."
+  },
+  "S15": {
+    "name": "#1ESS electronic",
+    "era": 2,
+    "infra": "Digital CO",
+    "quality": {
+      "coverage": 3,
+      "speed": 2,
+      "reliability": 8,
+      "latency": 3
+    },
+    "RP": 52,
+    "prerequisite": [
+      "S10",
+      "C9",
+      "A8"
+    ],
+    "description": "Introduces stored-program electronic control to large telephone switching offices."
+  },
+  "S16": {
+    "name": "#4ESS digital",
+    "era": 2,
+    "infra": null,
+    "quality": {
+      "coverage": 3,
+      "speed": 3,
+      "reliability": 10,
+      "latency": 5
+    },
+    "RP": 56,
+    "prerequisite": [
+      "S15",
+      "C15"
+    ],
+    "description": "Digitally switches high-volume long-distance traffic under stored-program control."
+  },
+  "S18": {
+    "name": "#5ESS modular",
+    "era": 2,
+    "infra": null,
+    "quality": {
+      "coverage": 5,
+      "speed": 2,
+      "reliability": 8,
+      "latency": 2
+    },
+    "RP": 54,
+    "prerequisite": [
+      "S15",
+      "T16"
+    ],
+    "description": "Provides modular digital switching for local, tandem, and service-provider applications."
+  },
+  "A15": {
+    "name": "ISDN BRI",
+    "era": 2,
+    "infra": null,
+    "quality": {
+      "coverage": 0,
+      "speed": 5,
+      "reliability": 3,
+      "latency": 2
+    },
+    "RP": 56,
+    "prerequisite": [
+      "S18",
+      "A8",
+      "C17"
+    ],
+    "description": "Delivers two digital bearer channels and one signaling channel over a subscriber line."
+  },
+  "A17": {
+    "name": "1G AMPS",
+    "era": 2,
+    "infra": "Cell Tower",
+    "quality": {
+      "coverage": 8,
+      "speed": -1,
+      "reliability": -2,
+      "latency": -2
+    },
+    "RP": 52,
+    "prerequisite": [
+      "A11",
+      "T15"
+    ],
+    "description": "Provides first-generation analog cellular voice service with automatic handoff between cells."
+  },
+  "A18": {
+    "name": "2G GSM",
+    "era": 2,
+    "infra": null,
+    "quality": {
+      "coverage": 10,
+      "speed": 3,
+      "reliability": 5,
+      "latency": 3
+    },
+    "RP": 58,
+    "prerequisite": [
+      "A17",
+      "C16"
+    ],
+    "description": "Provides second-generation digital cellular voice, messaging, authentication, and international roaming."
+  },
+  "A20": {
+    "name": "2.5G GPRS",
+    "era": 2,
+    "infra": null,
+    "quality": {
+      "coverage": 3,
+      "speed": 3,
+      "reliability": 2,
+      "latency": -1
+    },
+    "RP": 60,
+    "prerequisite": [
+      "A18",
+      "C17"
+    ],
+    "description": "Adds packet-switched mobile data services to existing second-generation GSM networks."
+  },
+  "A21": {
+    "name": "ADSL",
+    "era": 2,
+    "infra": null,
+    "quality": {
+      "coverage": 3,
+      "speed": 8,
+      "reliability": 1,
+      "latency": 0
+    },
+    "RP": 54,
+    "prerequisite": [
+      "S18",
+      "T15"
+    ],
+    "description": "Uses higher frequencies on copper loops to provide asymmetric broadband alongside telephone service."
+  },
+  "C15": {
+    "name": "SS7",
+    "era": 2,
+    "infra": null,
+    "quality": {
+      "coverage": 0,
+      "speed": 0,
+      "reliability": 10,
+      "latency": 5
+    },
+    "RP": 54,
+    "prerequisite": [
+      "C9",
+      "S15"
+    ],
+    "description": "Separates signaling from voice paths for fast call setup, routing, roaming, and services."
+  },
+  "C16": {
+    "name": "IN",
+    "era": 2,
+    "infra": null,
+    "quality": {
+      "coverage": 3,
+      "speed": 0,
+      "reliability": 8,
+      "latency": 3
+    },
+    "RP": 56,
+    "prerequisite": [
+      "C15",
+      "S18",
+      "T15"
+    ],
+    "description": "Carries packet data through reliable virtual circuits across public data networks."
+  },
+  "C17": {
+    "name": "TCP/IP",
+    "era": 2,
+    "infra": "Data Center",
+    "quality": {
+      "coverage": 0,
+      "speed": 3,
+      "reliability": 5,
+      "latency": 3
+    },
+    "RP": 50,
+    "prerequisite": [
+      "T16",
+      "S15"
+    ],
+    "description": "Interconnects heterogeneous packet networks using a common addressing and transport protocol suite."
+  },
+  "C20": {
+    "name": "DNS",
+    "era": 2,
+    "infra": null,
+    "quality": {
+      "coverage": 0,
+      "speed": 1,
+      "reliability": 3,
+      "latency": 2
+    },
+    "RP": 52,
+    "prerequisite": [
+      "C17"
+    ],
+    "description": "Translates human-readable domain names into network addresses through a distributed hierarchy."
+  },
+  "C24": {
+    "name": "BGP",
+    "era": 2,
+    "infra": null,
+    "quality": {
+      "coverage": 0,
+      "speed": 1,
+      "reliability": 5,
+      "latency": 1
+    },
+    "RP": 58,
+    "prerequisite": [
+      "C17"
+    ],
+    "description": "Exchanges reachability information between independently administered networks on the global Internet."
+  },
+  "T22": {
+    "name": "40G DWDM",
+    "era": 3,
+    "infra": "DWDM Terminal",
+    "quality": {
+      "coverage": 0,
+      "speed": 8,
+      "reliability": 0,
+      "latency": 0
+    },
+    "RP": 72,
+    "prerequisite": [
+      "T20",
+      "C25"
+    ],
+    "description": "Raises optical backbone capacity using 40-gigabit channels over dense wavelength multiplexing."
+  },
+  "T23": {
+    "name": "100G coherent",
+    "era": 3,
+    "infra": null,
+    "quality": {
+      "coverage": 0,
+      "speed": 10,
+      "reliability": 0,
+      "latency": 0
+    },
+    "RP": 76,
+    "prerequisite": [
+      "T22",
+      "C25"
+    ],
+    "description": "Uses coherent detection and digital signal processing for 100-gigabit optical channels."
+  },
+  "T26": {
+    "name": "GPON",
+    "era": 3,
+    "infra": "FTTH OLT",
+    "quality": {
+      "coverage": 0,
+      "speed": 10,
+      "reliability": 2,
+      "latency": 2
+    },
+    "RP": 68,
+    "prerequisite": [
+      "T15",
+      "A21"
+    ],
+    "description": "Shares passive fiber from an optical line terminal among multiple broadband subscribers."
+  },
+  "S22": {
+    "name": "MPLS",
+    "era": 3,
+    "infra": null,
+    "quality": {
+      "coverage": 0,
+      "speed": 3,
+      "reliability": 8,
+      "latency": 5
+    },
+    "RP": 74,
+    "prerequisite": [
+      "C25",
+      "C19",
+      "A22"
+    ],
+    "description": "Forwards packets through short labels, enabling traffic engineering and service separation."
+  },
+  "S23": {
+    "name": "Softswitch",
+    "era": 3,
+    "infra": null,
+    "quality": {
+      "coverage": 0,
+      "speed": 2,
+      "reliability": 5,
+      "latency": 5
+    },
+    "RP": 70,
+    "prerequisite": [
+      "S18",
+      "C17"
+    ],
+    "description": "Moves call-control logic into software while media gateways connect legacy and packet networks."
+  },
+  "S27": {
+    "name": "LTE EPC",
+    "era": 3,
+    "infra": null,
+    "quality": {
+      "coverage": 0,
+      "speed": 8,
+      "reliability": 8,
+      "latency": 5
+    },
+    "RP": 84,
+    "prerequisite": [
+      "A23",
+      "C25"
+    ],
+    "description": "Provides LTE mobility, authentication, session control, and gateways to external packet networks."
+  },
+  "A22": {
+    "name": "3G UMTS",
+    "era": 3,
+    "infra": null,
+    "quality": {
+      "coverage": 8,
+      "speed": 8,
+      "reliability": 5,
+      "latency": 3
+    },
+    "RP": 72,
+    "prerequisite": [
+      "A20",
+      "C15"
+    ],
+    "description": "Introduces third-generation wideband cellular radio for improved voice and mobile data."
+  },
+  "A23": {
+    "name": "3.5G HSPA+",
+    "era": 3,
+    "infra": null,
+    "quality": {
+      "coverage": 3,
+      "speed": 10,
+      "reliability": 3,
+      "latency": 3
+    },
+    "RP": 76,
+    "prerequisite": [
+      "A22"
+    ],
+    "description": "Enhances UMTS with faster packet scheduling, modulation, and radio-link techniques."
+  },
+  "A24": {
+    "name": "FTTH",
+    "era": 3,
+    "infra": null,
+    "quality": {
+      "coverage": 2,
+      "speed": 15,
+      "reliability": 5,
+      "latency": 3
+    },
+    "RP": 78,
+    "prerequisite": [
+      "T26",
+      "A21",
+      "C26"
+    ],
+    "description": "Runs optical fiber directly to customer premises for high-capacity fixed broadband."
+  },
+  "A25": {
+    "name": "4G LTE",
+    "era": 3,
+    "infra": "LTE eNodeB",
+    "quality": {
+      "coverage": 10,
+      "speed": 15,
+      "reliability": 8,
+      "latency": 8
+    },
+    "RP": 82,
+    "prerequisite": [
+      "A23",
+      "S27"
+    ],
+    "description": "Provides all-IP fourth-generation mobile broadband with wide channels and low radio latency."
+  },
+  "C19": {
+    "name": "ATM",
+    "era": 3,
+    "infra": null,
+    "quality": {
+      "coverage": 0,
+      "speed": 5,
+      "reliability": 5,
+      "latency": 3
+    },
+    "RP": 70,
+    "prerequisite": [
+      "T18",
+      "C17",
+      "S18"
+    ],
+    "description": "Transports voice, video, and data in fixed-size cells with service-quality controls."
+  },
+  "C25": {
+    "name": "IP/MPLS",
+    "era": 3,
+    "infra": "IP Core Router",
+    "quality": {
+      "coverage": 0,
+      "speed": 8,
+      "reliability": 10,
+      "latency": 5
+    },
+    "RP": 72,
+    "prerequisite": [
+      "C17",
+      "C24"
+    ],
+    "description": "Combines IP routing and MPLS traffic engineering into a scalable carrier backbone."
+  },
+  "C26": {
+    "name": "IMS",
+    "era": 3,
+    "infra": null,
+    "quality": {
+      "coverage": 0,
+      "speed": 3,
+      "reliability": 8,
+      "latency": 5
+    },
+    "RP": 78,
+    "prerequisite": [
+      "S23",
+      "C25"
+    ],
+    "description": "Provides standardized IP-based control for voice, messaging, multimedia, and converged services."
+  },
+  "C28": {
+    "name": "NFV",
+    "era": 3,
+    "infra": null,
+    "quality": {
+      "coverage": 0,
+      "speed": 3,
+      "reliability": 5,
+      "latency": 3
+    },
+    "RP": 86,
+    "prerequisite": [
+      "C25",
+      "C20",
+      "A25"
+    ],
+    "description": "Runs network functions as software workloads instead of dedicated proprietary appliances."
+  },
+  "T29": {
+    "name": "1.6T coherent",
+    "era": 4,
+    "infra": null,
+    "quality": {
+      "coverage": 0,
+      "speed": 10,
+      "reliability": 0,
+      "latency": 0
+    },
+    "RP": 96,
+    "prerequisite": [
+      "T23",
+      "C28"
+    ],
+    "description": "Uses advanced coherent modulation and digital processing to carry 1.6-terabit optical wavelengths."
+  },
+  "T31": {
+    "name": "Hollow-core fiber",
+    "era": 4,
+    "infra": null,
+    "quality": {
+      "coverage": 0,
+      "speed": 5,
+      "reliability": 2,
+      "latency": 15
+    },
+    "RP": 98,
+    "prerequisite": [
+      "T29"
+    ],
+    "description": "Tests air-guiding fiber designs intended to reduce propagation delay and nonlinear effects."
+  },
+  "S29": {
+    "name": "SDN",
+    "era": 4,
+    "infra": null,
+    "quality": {
+      "coverage": 0,
+      "speed": 5,
+      "reliability": 10,
+      "latency": 3
+    },
+    "RP": 90,
+    "prerequisite": [
+      "C25",
+      "C28"
+    ],
+    "description": "Separates network control from forwarding so carrier infrastructure can be programmed centrally."
+  },
+  "S30": {
+    "name": "Network Slicing",
+    "era": 4,
+    "infra": null,
+    "quality": {
+      "coverage": 0,
+      "speed": 8,
+      "reliability": 8,
+      "latency": 5
+    },
+    "RP": 96,
+    "prerequisite": [
+      "A30",
+      "C31"
+    ],
+    "description": "Creates isolated logical networks with distinct performance and service policies on shared 5G infrastructure."
+  },
+  "A29": {
+    "name": "5G NR",
+    "era": 4,
+    "infra": "5G gNodeB",
+    "quality": {
+      "coverage": 8,
+      "speed": 15,
+      "reliability": 8,
+      "latency": 10
+    },
+    "RP": 92,
+    "prerequisite": [
+      "A25",
+      "S27"
+    ],
+    "description": "Introduces flexible fifth-generation radio numerologies, massive MIMO, and broader spectrum support."
+  },
+  "A30": {
+    "name": "5G mmWave",
+    "era": 4,
+    "infra": null,
+    "quality": {
+      "coverage": 3,
+      "speed": 20,
+      "reliability": 8,
+      "latency": 12
+    },
+    "RP": 96,
+    "prerequisite": [
+      "A29",
+      "S29"
+    ],
+    "description": "Uses millimeter-wave spectrum for extreme capacity over short, obstruction-sensitive coverage areas."
+  },
+  "A32": {
+    "name": "LEO satellite",
+    "era": 4,
+    "infra": "LEO Terminal",
+    "quality": {
+      "coverage": 20,
+      "speed": 8,
+      "reliability": 5,
+      "latency": 5
+    },
+    "RP": 100,
+    "prerequisite": [
+      "A29",
+      "T29"
+    ],
+    "description": "Provides broadband through large fleets of low-orbit satellites with frequent handoffs."
+  },
+  "C29": {
+    "name": "MEC",
+    "era": 4,
+    "infra": "MEC Node",
+    "quality": {
+      "coverage": 0,
+      "speed": 3,
+      "reliability": 3,
+      "latency": 10
+    },
+    "RP": 94,
+    "prerequisite": [
+      "S29",
+      "C31"
+    ],
+    "description": "Places computing and service processing near users to reduce latency and backbone traffic."
+  },
+  "C31": {
+    "name": "5GC SBA",
+    "era": 4,
+    "infra": null,
+    "quality": {
+      "coverage": 0,
+      "speed": 5,
+      "reliability": 10,
+      "latency": 5
+    },
+    "RP": 98,
+    "prerequisite": [
+      "A30",
+      "C28"
+    ],
+    "description": "Uses cloud-native service-based functions to manage 5G sessions, mobility, policy, and authentication."
+  },
+  "C33": {
+    "name": "AI RIC",
+    "era": 4,
+    "infra": "AI-NFV Core",
+    "quality": {
+      "coverage": 0,
+      "speed": 5,
+      "reliability": 10,
+      "latency": 5
+    },
+    "RP": 100,
+    "prerequisite": [
+      "C31",
+      "C28"
+    ],
+    "description": "Optimizes open radio-access networks through near-real-time control applications and telemetry."
+  }
+}

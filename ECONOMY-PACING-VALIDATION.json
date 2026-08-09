@@ -1,0 +1,132 @@
+{
+  "initial_click_revenue": 5.0,
+  "network_income_formula": "sum(regionInfraBase * technologyMultiplier * regionalMarketMultiplier * prestigeMultiplier)",
+  "technology_multiplier": "1 + qualityScore / 100",
+  "regional_market_multiplier": "footholdFraction * competitionMultiplier",
+  "research_target_hours_at_cap": 7.0,
+  "max_cross_era_carry_minutes": 30,
+  "minimum_fastest_era_hours_after_carry": 6.5,
+  "eras": [
+    {
+      "era": 0,
+      "rp_cap_per_second": 8,
+      "fastest_route_cost_rp": 201612,
+      "fastest_route_hours_at_cap_before_carry": 7.0004,
+      "max_carry_rp": 0,
+      "fastest_route_hours_after_max_carry": 7.0004,
+      "fastest_route_nodes": [
+        "A1",
+        "A2",
+        "A4",
+        "A6",
+        "C1",
+        "C2",
+        "C3",
+        "C6",
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "T1",
+        "T2",
+        "T3",
+        "T4"
+      ]
+    },
+    {
+      "era": 1,
+      "rp_cap_per_second": 12,
+      "fastest_route_cost_rp": 302410,
+      "fastest_route_hours_at_cap_before_carry": 7.0002,
+      "max_carry_rp": 21600,
+      "fastest_route_hours_after_max_carry": 6.5002,
+      "fastest_route_nodes": [
+        "A8",
+        "A9",
+        "A10",
+        "A11",
+        "C8",
+        "C9",
+        "C10",
+        "C11",
+        "S8",
+        "S9",
+        "S10",
+        "S11",
+        "T8",
+        "T9",
+        "T10",
+        "T11"
+      ]
+    },
+    {
+      "era": 2,
+      "rp_cap_per_second": 18,
+      "fastest_route_cost_rp": 453608,
+      "fastest_route_hours_at_cap_before_carry": 7.0001,
+      "max_carry_rp": 32400,
+      "fastest_route_hours_after_max_carry": 6.5001,
+      "fastest_route_nodes": [
+        "A15",
+        "A17",
+        "A18",
+        "A21",
+        "C15",
+        "C16",
+        "C17",
+        "C20",
+        "S15",
+        "S16",
+        "S18",
+        "T15",
+        "T16",
+        "T18",
+        "T19"
+      ]
+    },
+    {
+      "era": 3,
+      "rp_cap_per_second": 27,
+      "fastest_route_cost_rp": 680408,
+      "fastest_route_hours_at_cap_before_carry": 7.0001,
+      "max_carry_rp": 48600,
+      "fastest_route_hours_after_max_carry": 6.5001,
+      "fastest_route_nodes": [
+        "A22",
+        "A23",
+        "A24",
+        "A25",
+        "C19",
+        "C25",
+        "C26",
+        "C28",
+        "S22",
+        "S23",
+        "S27",
+        "T22",
+        "T23",
+        "T26"
+      ]
+    },
+    {
+      "era": 4,
+      "rp_cap_per_second": 40,
+      "fastest_route_cost_rp": 1008000,
+      "fastest_route_hours_at_cap_before_carry": 7.0,
+      "max_carry_rp": 72000,
+      "fastest_route_hours_after_max_carry": 6.5,
+      "fastest_route_nodes": [
+        "A29",
+        "A30",
+        "A32",
+        "C29",
+        "C31",
+        "C33",
+        "S29",
+        "S30",
+        "T29",
+        "T31"
+      ]
+    }
+  ]
+}

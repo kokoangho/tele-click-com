@@ -1,0 +1,12 @@
+# Android shell (WebView wrapper) is not committed
+android/
+
+# Hermes internal
+.hermes/
+
+# Python
+__pycache__/
+*.pyc
+
+# Game save data
+game/telecom_clicker_save.json

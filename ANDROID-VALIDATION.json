@@ -1,0 +1,14 @@
+{
+  "game_index": "bf5c897d63a36de8fe407a4a31ea933cb7b1f9aad0e0a037589c9101a6b39e47",
+  "android_index": "bf5c897d63a36de8fe407a4a31ea933cb7b1f9aad0e0a037589c9101a6b39e47",
+  "game_tech": "cbdb0c411fbbd50eb70abe65e32e75d14ebbabf34688ca160956e6e94d015462",
+  "android_tech": "cbdb0c411fbbd50eb70abe65e32e75d14ebbabf34688ca160956e6e94d015462",
+  "index_assets_match": true,
+  "tech_assets_match": true,
+  "click_label_occurrences": 0,
+  "bank_credit_formula": "revenue_per_second_x_1800",
+  "version_code": 2,
+  "version_name": "1.1.0",
+  "agp": "8.13.2",
+  "gradle": "8.13"
+}
