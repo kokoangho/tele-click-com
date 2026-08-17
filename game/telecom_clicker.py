@@ -111,6 +111,7 @@ BANK_RATE_MIN = 0.027
 BANK_RATE_MAX = 0.033
 BANK_RATE_MONTHS = 3
 BANK_CREDIT_PER_REVENUE_PER_SEC = 1800
+INCOME_SCALE = 100
 
 CLICK_BASE_REVENUE = 5
 AD_SUBSCRIBERS_PER_DOLLAR_PER_SEC = 1
@@ -378,7 +379,7 @@ def region_market_mult(region):
 
 def region_network_ips(region):
     return (region_infra_ips(region) * technology_revenue_mult()
-            * region_market_mult(region) * STATE.prestige_mult)
+            * region_market_mult(region) * STATE.prestige_mult * INCOME_SCALE)
 
 
 def network_income_ips():
