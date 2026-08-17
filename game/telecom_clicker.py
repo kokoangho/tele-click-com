@@ -112,6 +112,7 @@ BANK_RATE_MAX = 0.033
 BANK_RATE_MONTHS = 3
 BANK_CREDIT_PER_REVENUE_PER_SEC = 1800
 INCOME_SCALE = 100
+MAX_OFFLINE_SECONDS = 7 * 24 * 60 * 60
 
 CLICK_BASE_REVENUE = 5
 AD_SUBSCRIBERS_PER_DOLLAR_PER_SEC = 1
@@ -208,6 +209,7 @@ class State:
         self.research_budget = 10
         self.selected_region = WORLD_REGIONS[0]
         self.bulk_qty = 1
+        self.saved_at = time.time()
         self.notice = "Welcome to Telecom Clicker! Type 'help' for commands."
 
     def to_dict(self):
@@ -227,6 +229,7 @@ class State:
             "tech_investment_max": self.tech_investment_max,
             "research_budget": self.research_budget,
             "selected_region": self.selected_region, "bulk_qty": self.bulk_qty,
+            "saved_at": self.saved_at,
         }
 
     def from_dict(self, d):
@@ -256,6 +259,7 @@ class State:
         self.research_budget = int(d.get("research_budget", 10))
         self.selected_region = d.get("selected_region", WORLD_REGIONS[0])
         self.bulk_qty = int(d.get("bulk_qty", 1))
+        self.saved_at = float(d.get("saved_at", time.time()))
         if WORLD_REGIONS[0] not in self.regions:
             self.regions[WORLD_REGIONS[0]] = []
             self.footholds.setdefault(WORLD_REGIONS[0], START_FOOTHOLD)
@@ -1124,6 +1128,13 @@ def main():
     print("  Type 'help' for commands. 'quit' exits (autosaves).")
     print("=" * 62)
     load_game()
+    elapsed = min(MAX_OFFLINE_SECONDS, time.time() - STATE.saved_at) if STATE.saved_at else 0
+    if elapsed >= 30:
+        before = (STATE.cash, STATE.rp, STATE.users)
+        simulate_seconds(elapsed)
+        print(f"[OFFLINE] {int(elapsed/60)}m elapsed: +{fmt(STATE.cash-before[0])} cash, "
+              f"+{STATE.rp-before[1]:.0f} RP, +{int(STATE.users-before[2])} users — now {game_date()}")
+    STATE.saved_at = time.time()
     ticker = threading.Thread(target=_background_tick, daemon=True)
     ticker.start()
     try:
