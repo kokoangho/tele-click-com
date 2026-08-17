@@ -18,8 +18,7 @@ in this repo (`tech-tree.md`, `market-investment.md`, `infrastructure.md`,
 **Deliverables:**
 
 1. **Web game** — single-file `game/index.html` (HTML/CSS/JS, no build step,
-   no external libraries, mobile-first touch UI):
-   - Click page: big tap zone, revenue + quality cards, click-earn hint,
+   no external libraries, mobile-first touch UI):   - Click page: big tap zone, revenue + quality cards, click-earn hint,
      ripple effect on tap.
    - Research page: 4 branches (Transmission/Switching/Access/Core) × 6 eras,
      87+ tech nodes with prerequisites, SVG dependency graph, long-press
@@ -39,12 +38,7 @@ in this repo (`tech-tree.md`, `market-investment.md`, `infrastructure.md`,
    - Era pacing: ~6–7 hours of play per era on the fastest legal tech path
      (era RP cap carries over at most 30 minutes into the next era).
 
-2. **Text edition** — `game/telecom_clicker.py` (Python 3, stdlib only,
-   real-time background income thread, JSON save/load): same economy and
-   systems as the web game, driven by commands (`click`, `research`,
-   `build`, `expand`, `contracts`, `ads`, `bank`, `ipo`, `wait`, `save`).
-
-3. **Android shell** (optional, kept out of git): WebView wrapper loading the
+2. **Android shell** (optional, kept out of git): WebView wrapper loading the
    game file, immersive mode, DOM storage enabled for persistence.
 
 **Constraints:**

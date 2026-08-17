@@ -6,22 +6,12 @@ A mobile clicker/idle game where you build a telecom empire from scratch. Start 
 
 | Path | Contents |
 |---|---|
-| `game/index.html` | Canonical web game (single-file HTML/CSS/JS, EN/KO language packs, localStorage save) |
-| `game/tech-nodes.json` | Tech tree data: 87 nodes across 4 branches × 6 eras (shared by web + text versions) |
-| `game/telecom_clicker.py` | Text edition of the game (Python 3, stdlib only, real-time, saves to `telecom_clicker_save.json`) |
+| `game/index.html` | The game — single-file HTML/CSS/JS, EN/KO language packs, localStorage save, offline progress |
+| `game/tech-nodes.json` | Tech tree data: 87 nodes across 4 branches × 6 eras |
 | `*.md` | Design/plan documents used to build the game (see below) |
 | `output/` | Release artifacts (`.aab` app bundles) |
 
 > `android/` (native WebView shell) is intentionally **not** committed to this repository.
-
-## Running the Text Game
-
-```bash
-cd game
-python telecom_clicker.py
-```
-
-Type `help` inside the game. Core loop: click to earn → research tech → build infrastructure → expand regions → fight rivals → contracts/ads/bank/IPO.
 
 ## Design Documents (the plan)
 
